@@ -21,13 +21,13 @@ jobs:
 
       - name: Install dependent libraries
         run: |
-          sudo apt-get install libpq-dev
+          sudo apt-get update --fix-missing
+          sudo apt-get install libpq-dev 
           sudo apt-get install libcurl3-dev
 
       - name: Bundle install
         run: |
           gem install bundler
-          gem install patron
           bundle install --jobs 4 --retry 3
 
       - name: Setup Database
