@@ -20,7 +20,10 @@ jobs:
           ruby-version: 2.7.4
 
       - name: Install dependent libraries
-        run: sudo apt-get install libpq-dev
+        run: |
+          sudo apt-get install libpq-dev
+          sudo apt update
+          sudo apt install patron
 
       - name: Bundle install
         run: |
