@@ -20,7 +20,9 @@ jobs:
           ruby-version: 2.7.4
 
       - name: Install dependent libraries
-        run: sudo apt-get install libpq-dev
+        run: |
+          sudo apt-get install libpq-dev
+          sudo apt-get install libcurl3-dev
 
       - name: Bundle install
         run: |
