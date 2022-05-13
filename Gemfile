@@ -36,6 +36,9 @@ group :development, :test do
   gem 'pry'
   gem 'faker'
   gem 'patron'
+  gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
 end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
