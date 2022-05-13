@@ -23,11 +23,11 @@ jobs:
         run: |
           sudo apt-get install libpq-dev
           sudo apt update
-          sudo apt install patron
 
       - name: Bundle install
         run: |
           gem install bundler
+          gem install patron
           bundle install --jobs 4 --retry 3
 
       - name: Setup Database
