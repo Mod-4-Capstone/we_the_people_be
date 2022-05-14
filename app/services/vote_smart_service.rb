@@ -13,6 +13,6 @@ class VoteSmartService
 
   def self.candidates_by_state(state)
     response = conn.get("Officials.getByOfficeTypeState?officeTypeId=C&stateId=#{state}")
-    JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)[:candidateList][:candidate].filter {|c| c[:officeTypeId] == "C"}
   end
 end

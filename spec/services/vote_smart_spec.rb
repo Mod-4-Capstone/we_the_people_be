@@ -18,7 +18,7 @@ RSpec.describe VoteSmartService do
     it 'can return candidates by state' do
       state = 'SC'
       response = VoteSmartService.candidates_by_state(state)
-      require "pry"; binding.pry
+
       expect(response).to be_an Array
       expect(response.count).to eq 9
       expect(response[0]).to be_a Hash 

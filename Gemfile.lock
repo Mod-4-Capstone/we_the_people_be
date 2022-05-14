@@ -55,6 +55,12 @@ GEM
     erubi (1.10.0)
     faker (2.20.0)
       i18n (>= 1.8.11, < 2)
+    faraday (2.3.0)
+      faraday-net_http (~> 2.0)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (2.0.2)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
@@ -77,6 +83,8 @@ GEM
     minitest (5.15.0)
     msgpack (1.5.1)
     nio4r (2.5.8)
+    nokogiri (1.13.6-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
     patron (0.13.3)
@@ -134,6 +142,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
+    ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
@@ -158,19 +167,20 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
-    votesmart (0.4.1)
-      patron (>= 0.4.6)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-darwin-21
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   faker
+  faraday
+  fast_jsonapi
   figaro
   listen (>= 3.0.5, < 3.2)
   patron
@@ -184,10 +194,9 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
-  votesmart (~> 0.4.1)
 
 RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.12
+   2.3.9
