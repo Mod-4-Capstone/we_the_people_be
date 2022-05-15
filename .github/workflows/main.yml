@@ -41,8 +41,11 @@ jobs:
           POSTGRES_PASSWORD: postgres
 
       - name: Run RSpec
-        run: COVERAGE=true bundle exec rspec  --require rails_helper
+        run: |
+          echo "ENV['vote_smart_key']=$(echo $VOTE_SMART_KEY" >> $GITHUB_ENV
+          COVERAGE=true bundle exec rspec  --require rails_helper
         env:
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
+        
