@@ -42,7 +42,8 @@ jobs:
 
       - name: Run RSpec
         run: |
-          echo "ENV['vote_smart_key']=$(echo $VOTE_SMART_KEY" >> $GITHUB_ENV
+          echo "vote_smart_key=$(echo $VOTE_SMART_KEY)" >> $GITHUB_ENV
+          echo $vote_smart_key
           COVERAGE=true bundle exec rspec  --require rails_helper
         env:
           RAILS_ENV: test
