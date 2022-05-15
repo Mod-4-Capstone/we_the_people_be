@@ -39,11 +39,13 @@ jobs:
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
+      - name: Set environment variables 
+        env:
+          vote_smart_key: ${{secrets.VOTE_SMART_KEY}}
 
       - name: Run RSpec
         run: |
-          echo "vote_smart_key=$(echo $VOTE_SMART_KEY)" >> $GITHUB_ENV
-          echo $vote_smart_key
+          echo "vote_smart_key = $VOTE_SMART_KEY"
           COVERAGE=true bundle exec rspec  --require rails_helper
         env:
           RAILS_ENV: test
