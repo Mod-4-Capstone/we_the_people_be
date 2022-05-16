@@ -35,6 +35,7 @@ RSpec.describe VoteSmartService do
 
       expect(response[:bio][:office]).to include(:parties, :title, :firstElect, :lastElect, :stateId, :committee)
     end
+
     it 'will return a detailed bio' do 
       response = VoteSmartService.detailed_bio('110942')
       
@@ -43,6 +44,7 @@ RSpec.describe VoteSmartService do
       expect(response[:bio][:office].keys).to eq([:name, :parties, :title, :shortTitle, :type, :status, :firstElect, :lastElect, :nextElect, :termStart, :termEnd, :district, :districtId, :stateId, :committee])
     end
   end
+  
   describe 'SIG info' do 
     it 'will return all the sig ratings pertaining to an official' do 
       response = VoteSmartService.get_all_sig_ratings('110942')
