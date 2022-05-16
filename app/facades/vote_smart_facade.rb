@@ -22,6 +22,7 @@ class VoteSmartFacade
     end
 
     def self.candidate_bio(id)
-        VoteSmartService.
+        json = VoteSmartService.candidate_bio(id)
+        Bio.new(json[:bio])
     end
 end
