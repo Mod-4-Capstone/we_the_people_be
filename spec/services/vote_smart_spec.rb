@@ -25,4 +25,29 @@ RSpec.describe VoteSmartService do
       expect(response[0][:firstName]).to eq("James")
     end
   end
+  describe 'biographies' do 
+    # CO Senator Michael Bennet has candidateID 110942
+    it 'will return a candidates bio' do 
+      response = VoteSmartService.candidate_bio('110942')
+      expect(response[:bio]).to include(:generalInfo, :candidate, :office, :election)
+
+      expect(response[:bio][:candidate]).to include(:photo, :firstName, :nickName, :middleName, :preferredName, :lastName, :suffix, :birthDate, :birthPlace, :pronunciation, :gender, :family, :homeCity, :homeState, :religion, :specialMsg)
+
+      expect(response[:bio][:office]).to include(:parties, :title, :firstElect, :lastElect, :stateId, :committee)
+    end
+    it 'will return a detailed bio' do 
+      response = VoteSmartService.detailed_bio('110942')
+      
+      expect(response[:bio][:candidate].keys).to eq([:candidateId,:crpId,:photo,:firstName,:nickName,:middleName,:preferredName,:lastName,:suffix,:birthDate,:birthPlace,:pronunciation,:gender,:family,:homeCity,:homeState,:education,:profession,:political,:congMembership,:orgMembership,:religion,:specialMsg])
+      
+      expect(response[:bio][:office].keys).to eq([:name, :parties, :title, :shortTitle, :type, :status, :firstElect, :lastElect, :nextElect, :termStart, :termEnd, :district, :districtId, :stateId, :committee])
+    end
+  end
+  describe 'SIG info' do 
+    it 'will return all the sig ratings pertaining to an official' do 
+      response = VoteSmartService.get_all_sig_ratings('110942')
+      expect(response[:candidateRating][:rating].count).to eq(998)
+      expect(response[:candidateRating][:rating].first).to include(:sigId, :ratingId, :categories, :timespan, :rating, :ratingName, :ratingText)
+    end
+  end
 end

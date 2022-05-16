@@ -1,0 +1,21 @@
+require './app/poros/sig_rating'
+require './app/poros/politician'
+class VoteSmartFacade
+    def self.specific_candidate_ratings(id)
+        SigRating.new(VoteSmartService.get_all_sig_ratings(id))
+    end
+    def self.all_ratings_for_candidates_in_zip(zip)
+        candidate_ids = VoteSmartService.candidates_by_zip(zip).map{|i| i[:candidateId]}
+        politicians = candidate_ids.map do |candidateId| 
+           Politician.new(candidateId)
+        end
+        return politicians
+    end
+    def self.all_ratings_for_candidates_in_state(state)
+        candidate_ids = VoteSmartService.candidates_by_state(state).map{|i| i[:candidateId]}
+        politicians = candidate_ids.map do |candidateId| 
+           Politician.new(candidateId)
+        end
+        return politicians
+    end
+end
