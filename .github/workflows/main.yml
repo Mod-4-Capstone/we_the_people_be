@@ -44,8 +44,7 @@ jobs:
           vote_smart_key: ${{secrets.VOTE_SMART_KEY}}
 
       - name: Run RSpec
-        run: |
-          COVERAGE=true bundle exec rspec  --require rails_helper
+        run: COVERAGE=true bundle exec rspec  --require rails_helper
         env:
           RAILS_ENV: test
           POSTGRES_USER: postgres
