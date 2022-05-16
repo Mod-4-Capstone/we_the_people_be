@@ -22,6 +22,6 @@ class VoteSmartFacade
     end
 
     def self.candidate_bio(id)
-        
+        VoteSmartService.
     end
 end
