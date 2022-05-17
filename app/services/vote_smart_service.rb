@@ -20,20 +20,23 @@ class VoteSmartService
     response = conn.get("CandidateBio.getBio?candidateId=#{id}")
     JSON.parse(response.body, symbolize_names: true)
   end
-  
+
   def self.detailed_bio(id)
     response = conn.get("CandidateBio.getDetailedBio?candidateId=#{id}")
     JSON.parse(response.body, symbolize_names: true)
   end
-  
+
   def self.get_all_sig_ratings(id)
     response = conn.get("Rating.getCandidateRating?candidateId=#{id}")
     if response.body[-1] != "}"
       # representatives return invalid JSON
       response_body = response.body + '"}]}}'
       parsed = JSON.parse(response_body, symbolize_names: true)
-    else 
+    else
       parsed = JSON.parse(response.body, symbolize_names: true)
     end
+    rescue JSON::ParserError
+      response_body = response.body + "]}}"
+      parsed = JSON.parse(response_body, symbolize_names: true)
   end
 end

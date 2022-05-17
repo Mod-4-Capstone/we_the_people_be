@@ -1,13 +1,13 @@
 class SigRating
-    attr_reader :planned_parenthood, 
-                :americans_for_prosperity, 
-                :aclu, 
-                :end_citizens_united, 
-                :national_assocation_of_police, 
-                :national_education_assocation, 
-                :national_parks_conservation, 
-                :nra, 
-                :numbers_usa, 
+    attr_reader :planned_parenthood,
+                :americans_for_prosperity,
+                :aclu,
+                :end_citizens_united,
+                :national_assocation_of_police,
+                :national_education_assocation,
+                :national_parks_conservation,
+                :nra,
+                :numbers_usa,
                 :norml
     def initialize(data)
         @planned_parenthood = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1578"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1578"}.first[:rating].to_i : nil
