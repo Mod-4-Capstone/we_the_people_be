@@ -8,18 +8,12 @@ class Politician
     end
 
     def run_analysis(ratings, user_ratings)
-        user_comparison = { 
-            aclu: (ratings.aclu - user_ratings[:aclu].to_i).abs, 
-            americans_for_prosperity: (ratings.americans_for_prosperity - user_ratings[:americans_for_prosperity].to_i).abs, 
-            end_citizens_united: (ratings.end_citizens_united - user_ratings[:end_citizens_united].to_i).abs, 
-            national_assocation_of_police: (ratings.national_assocation_of_police - user_ratings[:national_assocation_of_police].to_i).abs, 
-            national_education_assocation: (ratings.national_education_assocation - user_ratings[:national_education_assocation].to_i).abs, 
-            norml: (ratings.norml - user_ratings[:norml].to_i).abs, 
-            nra: (ratings.nra - user_ratings[:nra].to_i).abs, 
-            numbers_usa: (ratings.numbers_usa - user_ratings[:numbers_usa].to_i).abs, 
-            planned_parenthood: (ratings.planned_parenthood - user_ratings[:planned_parenthood].to_i).abs
-        }
-        return user_comparison
+        # check for nils in ratings 
+        instance_variables = ratings.instance_variables
+        non_nil = instance_variables.select do |iv| 
+            ratings.instance_variable_get(iv).nil? == false
+        end
+        return non_nil.map{ |sig| [sig.to_s[1..], (ratings.instance_variable_get(sig) - user_ratings[sig.to_s[1..].to_sym].to_i ).abs] }.to_h 
     end
 
     def politician_opinion_sum
