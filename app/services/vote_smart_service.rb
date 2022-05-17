@@ -32,7 +32,7 @@ class VoteSmartService
       # representatives return invalid JSON
       response_body = response.body + '"}]}}'
       parsed = JSON.parse(response_body, symbolize_names: true)
-    else
+    else 
       parsed = JSON.parse(response.body, symbolize_names: true)
     end
     rescue JSON::ParserError
