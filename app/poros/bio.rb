@@ -1,14 +1,15 @@
 class Bio
-  attr_reader :ratings, :name, :state, :age, :district, :photo, :gender, :years_in_office, :next_election
+  attr_reader :ratings, :name, :state, :age, :district, :photo, :gender, :years_in_office, :next_election, :type
   def initialize(data)
       @name = data[:candidate][:firstName] + " " + data[:candidate][:lastName]
-      @state = data[:office][:stateId]
+      @type = data[:office].class == Hash ? "Senator" : "Representative"
+      @state = @type == "Senator" ? data[:office][:stateId] : data[:office].first[:stateId]
       @age = get_age(data[:candidate][:birthDate])
-      @district = data[:office][:districtId]
+      @district = @type == "Senator" ? @state : data[:office].first[:district]
       @photo = data[:candidate][:photo]
       @gender = data[:candidate][:gender]
-      @years_in_office = time_in_office(data[:office][:firstElect])
-      @next_election = next_up(data[:office][:title], data[:office][:lastElect])
+      @years_in_office = @type == 'Senator' ? time_in_office(data[:office][:firstElect]) : data[:office].first[:firstElect]
+      @next_election = @type == 'Senator' ? next_up(@type, data[:office][:lastElect]) : next_up(@type, data[:office].first[:lastElect])
   end
 
   def get_age(bday)
@@ -16,12 +17,8 @@ class Bio
     now - bday[-4..-1].to_i
   end
 
-  def senator?(title)
-    title == "Senator"
-  end
-
   def next_up(title, date)
-    if senator?(title)
+    if @type == 'Senator'
       return (date[-4..-1].to_i + 6).to_s
     else
       return (date[-4..-1].to_i + 2).to_s

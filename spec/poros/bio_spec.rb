@@ -24,7 +24,7 @@ RSpec.describe Bio do
     expect(politician.name).to eq("John Hickenlooper")
     expect(politician.state).to eq("CO")
     expect(politician.age).to eq(70)
-    expect(politician.district).to eq("20447")
+    expect(politician.district).to eq("CO")
     expect(politician.photo).to eq("https://static.votesmart.org/canphoto/71547.jpg")
     expect(politician.gender).to eq("Male")
     expect(politician.years_in_office).to eq(2)
