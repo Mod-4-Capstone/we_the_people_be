@@ -5,7 +5,7 @@ RSpec.describe VoteSmartFacade do
         it 'will return all the ratings of a certain candidate', :vcr do
             ratings = VoteSmartFacade.specific_candidate_ratings('110942')
             expect(ratings.aclu).to eq(100)
-            expect(ratings.americans_for_prosperity).to eq(100)
+            expect(ratings.americans_for_prosperity).to eq(10)
             expect(ratings.end_citizens_united).to eq(100)
             expect(ratings.national_assocation_of_police).to eq(80)
             expect(ratings.national_education_assocation).to eq(100)

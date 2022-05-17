@@ -10,15 +10,20 @@ class SigRating
                 :numbers_usa, 
                 :norml
     def initialize(data)
-        @planned_parenthood = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1578"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1578"}.first[:rating].to_i : nil
-        @americans_for_prosperity = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1578"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1578"}.first[:rating].to_i : nil
-        @aclu = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1378"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1378"}.first[:rating].to_i : nil
-        @end_citizens_united = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "2568"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "2568"}.first[:rating].to_i : nil
-        @national_assocation_of_police = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "2407"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "2407"}.first[:rating].to_i : nil
-        @national_education_assocation = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1015"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1015"}.first[:rating].to_i : nil
-        @national_parks_conservation = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "922"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "922"}.first[:rating].to_i : nil
-        @nra = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1034"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1034"}.first[:rating].to_i : nil
-        @numbers_usa = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1985"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "1985"}.first[:rating].to_i : nil
-        @norml = data[:candidateRating][:rating].select{|sig| sig[:sigId] == "599"}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == "599"}.first[:rating].to_i : nil
+        @planned_parenthood = get_rating(data, '1578')
+        @americans_for_prosperity = get_rating(data, '310')
+        @aclu = get_rating(data, '1378')
+        @end_citizens_united = get_rating(data, '2568')
+        @national_assocation_of_police = get_rating(data, '2407')
+        @national_education_assocation = get_rating(data, '1015')
+        @national_parks_conservation = get_rating(data, '922')
+        @nra = get_rating(data, '1034')
+        @numbers_usa = get_rating(data, '1985')
+        @norml = get_rating(data, '599')
     end
+
+    def get_rating(data, id)
+        data[:candidateRating][:rating].select{|sig| sig[:sigId] == id}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == id}.first[:rating].to_i : nil
+    end
+    
 end
