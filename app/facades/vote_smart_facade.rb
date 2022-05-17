@@ -12,6 +12,14 @@ class VoteSmartFacade
         end
         return politicians
     end
+    
+    def self.zip_with_quiz(zip, quiz)
+        candidate_ids = VoteSmartService.candidates_by_zip(zip).map{|i| i[:candidateId]}
+        politicians_with_comparison = candidate_ids.map do |candidateId|
+           Politician.new(candidateId, quiz)
+        end
+        return politicians_with_comparison
+    end
 
     def self.all_ratings_for_candidates_in_state(state)
         candidate_ids = VoteSmartService.candidates_by_state(state).map{|i| i[:candidateId]}
