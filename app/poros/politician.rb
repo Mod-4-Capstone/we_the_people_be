@@ -1,9 +1,7 @@
 class Politician
-<<<<<<< HEAD
+
     attr_reader :id, :ratings, :bio, :user_ratings, :compatibility
-=======
-    attr_reader :ratings, :bio, :user_ratings, :compatibility
->>>>>>> eca6f09 (Feature: regional info summary statistics)
+
     def initialize(id, user_ratings=nil)
         @id = nil
         @ratings = VoteSmartFacade.specific_candidate_ratings(id)
