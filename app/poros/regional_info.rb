@@ -9,9 +9,11 @@ class RegionalInfo
                 :nra,
                 :numbers_usa,
                 :norml,
-                :politicians 
+                :politicians, 
+                :id
 
     def initialize(politicians, quiz = nil)
+        @id = nil
         @politicians = politicians
         @quiz = quiz
         @count = politicians.length
