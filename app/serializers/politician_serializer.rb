@@ -4,5 +4,5 @@ class PoliticianSerializer
   set_id :id
   set_type "report"
 
-  attributes :ratings, :bio, :user_ratings, :opinion_delta
+  attributes :ratings, :bio, :user_ratings, :compatibility
 end
