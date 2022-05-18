@@ -6,7 +6,7 @@ class VoteSmartFacade
     end
 
     def self.all_ratings_for_candidates_in_zip(zip)
-        candidate_ids = VoteSmartService.candidates_by_zip(zip).map{|i| i[:candidateId]}
+        candidate_ids = VoteSmartService.candidates_by_zip(zip).map{|i| i[:candidateId]}.uniq
         politicians = candidate_ids.map do |candidateId|
            Politician.new(candidateId)
         end
@@ -14,17 +14,17 @@ class VoteSmartFacade
     end
     
     def self.zip_with_quiz(zip, quiz)
-        candidate_ids = VoteSmartService.candidates_by_zip(zip).map{|i| i[:candidateId]}
+        candidate_ids = VoteSmartService.candidates_by_zip(zip).map{|i| i[:candidateId]}.uniq
         politicians_with_comparison = candidate_ids.map do |candidateId|
-           Politician.new(candidateId, quiz)
+            Politician.new(candidateId, quiz)
         end
         return politicians_with_comparison
     end
-
+    
     def self.all_ratings_for_candidates_in_state(state)
-        candidate_ids = VoteSmartService.candidates_by_state(state).map{|i| i[:candidateId]}
+        candidate_ids = VoteSmartService.candidates_by_state(state).map{|i| i[:candidateId]}.uniq
         politicians = candidate_ids.map do |candidateId|
-           Politician.new(candidateId)
+            Politician.new(candidateId)
         end
         return politicians
     end
