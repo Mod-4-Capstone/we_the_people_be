@@ -1,5 +1,5 @@
 class Politician
-    attr_reader :ratings, :bio, :user_ratings
+    attr_reader :ratings, :bio, :user_ratings, :opinion_delta
     def initialize(id, user_ratings=nil)
         @ratings = VoteSmartFacade.specific_candidate_ratings(id)
         @bio = VoteSmartFacade.candidate_bio(id)
@@ -8,12 +8,12 @@ class Politician
     end
 
     def run_analysis(ratings, user_ratings)
-        # check for nils in ratings 
+        # check for nils in ratings
         instance_variables = ratings.instance_variables
-        non_nil = instance_variables.select do |iv| 
+        non_nil = instance_variables.select do |iv|
             ratings.instance_variable_get(iv).nil? == false
         end
-        return non_nil.map{ |sig| [sig.to_s[1..], (ratings.instance_variable_get(sig) - user_ratings[sig.to_s[1..].to_sym].to_i ).abs] }.to_h 
+        return non_nil.map{ |sig| [sig.to_s[1..], (ratings.instance_variable_get(sig) - user_ratings[sig.to_s[1..].to_sym].to_i ).abs] }.to_h
     end
 
     def politician_opinion_sum
