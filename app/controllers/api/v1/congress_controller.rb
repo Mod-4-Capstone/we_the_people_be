@@ -1,63 +1,36 @@
 class Api::V1::CongressController < ApplicationController
-  def zip_code
+  def zipcode
     VoteSmartFacade.all_ratings_for_candidates_in_zip(params[:zipcode])
   end
 
-  def zip_code_with_quiz
-    quiz = {
-              aclu: params[:Q1],
-              americans_for_prosperity: params[:Q2],
-              end_citizens_united: params[:Q3],
-              national_assocation_of_police: params[:Q4],
-              national_education_assocation: params[:Q5],
-              national_parks_conservation: params[:Q6],
-              norml: params[:Q7],
-              nra: params[:Q8],
-              numbers_usa: params[:Q9],
-              planned_parenthood: params[:Q10]
+  def zipcode_with_quiz
+           politicians = VoteSmartFacade.zip_with_quiz(params[:zipcode], parse_quiz(params[:congress]))
+           render json: {
+             politicians: PoliticianSerializer.new(politicians), 
+             summary_statistics: SummaryStatisticsSerializer.new(VoteSmartFacade.summary_statistics(politicians, parse_quiz(params[:congress])))
            }
-           politicians = VoteSmartFacade.zip_with_quiz(params[:zipcode], quiz)
-           render json: PoliticianSerializer.new(politicians)
     end
 
   def state_with_quiz
-    quiz = {
-              aclu: params[:Q1],
-              americans_for_prosperity: params[:Q2],
-              end_citizens_united: params[:Q3],
-              national_assocation_of_police: params[:Q4],
-              national_education_assocation: params[:Q5],
-              national_parks_conservation: params[:Q6],
-              norml: params[:Q7],
-              nra: params[:Q8],
-              numbers_usa: params[:Q9],
-              planned_parenthood: params[:Q10]
-           }
-    politicians = VoteSmartFacade.zip_with_quiz(params[:state], quiz)
-    render json: PoliticianSerializer.new(politicians)
+    politicians = VoteSmartFacade.state_with_quiz(params[:state], parse_quiz(params[:congress]))
+    render json: {
+                    politicians: PoliticianSerializer.new(politicians), 
+                    summary_statistics: SummaryStatisticsSerializer.new(VoteSmartFacade.summary_statistics(politicians, parse_quiz(params[:congress])))
+                  }
   end
-
-  def state
-    render json: {data: 'state'}
+  private 
+  def parse_quiz(quiz)
+    {
+      aclu: quiz[:aclu].to_i,
+      americans_for_prosperity: quiz[:americans_for_prosperity].to_i,
+      end_citizens_united: quiz[:end_citizens_united].to_i,
+      national_assocation_of_police: quiz[:national_assocation_of_police].to_i,
+      national_education_assocation: quiz[:national_education_assocation].to_i,
+      national_parks_conservation: quiz[:national_parks_conservation].to_i,
+      norml: quiz[:norml].to_i,
+      nra: quiz[:nra].to_i,
+      numbers_usa: quiz[:numbers_usa].to_i,
+      planned_parenthood: quiz[:planned_parenthood].to_i
+    }
   end
-          
-  def state_with_quiz 
-    quiz = {
-              aclu: params[:Q1], 
-              americans_for_prosperity: params[:Q2], 
-              end_citizens_united: params[:Q3], 
-              national_assocation_of_police: params[:Q4], 
-              national_education_assocation: params[:Q5], 
-              national_parks_conservation: params[:Q6], 
-              norml: params[:Q7], 
-              nra: params[:Q8], 
-              numbers_usa: params[:Q9], 
-              planned_parenthood: params[:Q10]
-            }
-            politicians = VoteSmartFacade.state_with_quiz('CO', quiz)
-            render json: {
-              politicians: politicians, 
-              summary_statistics: VoteSmartFacade.summary_statistics(politicians, quiz)
-            }
-    end
 end

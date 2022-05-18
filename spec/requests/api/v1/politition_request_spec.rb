@@ -1,24 +1,24 @@
 require 'rails_helper'
 
 describe "Politician API" do
-  it "happy path sends a politician report", :vcr do
-    body = {
+  xit "happy path sends a politician report", :vcr do
+    quiz = {
     id: 42,
     age: "20-29",
     state: "CA",
     zipcode: "95060",
-    Q1: "100",
-    Q2: "20",
-    Q3: "80",
-    Q4: "80",
-    Q5: "100",
-    Q6: "100",
-    Q7: "92",
-    Q8: "7",
-    Q9: "0",
-    Q10: "100"
+    aclu: "100",
+    americans_for_prosperity: "20",
+    end_citizens_united: "80",
+    national_assocation_of_police: "80",
+    national_education_assocation: "100",
+    national_parks_conservation: "100",
+    norml: "92",
+    nra: "7",
+    numbers_usa: "0",
+    planned_parenthood: "100"
   }
-    post '/api/v1/zip_code_with_quiz', params: body
+    post '/api/v1/zipcode_with_quiz', params: quiz
 
     expect(response.status).to eq(200)
     response_data = JSON.parse(response.body, symbolize_names: true)
