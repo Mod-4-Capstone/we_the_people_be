@@ -1,11 +1,11 @@
 class Politician
-    attr_reader :id, :ratings, :bio, :user_ratings, :opinion_delta
+    attr_reader :id, :ratings, :bio, :user_ratings, :compatibility
     def initialize(id, user_ratings=nil)
         @id = nil
         @ratings = VoteSmartFacade.specific_candidate_ratings(id)
         @bio = VoteSmartFacade.candidate_bio(id)
         @user_ratings = run_analysis(@ratings, user_ratings) if user_ratings.nil? == false
-        @opinion_delta = difference_of_opinion(politician_opinion_sum, @user_ratings.values.sum) if user_ratings.nil? == false
+        @compatibility = difference_of_opinion(politician_opinion_sum, @user_ratings.values.sum) if user_ratings.nil? == false
     end
 
     def run_analysis(ratings, user_ratings)
