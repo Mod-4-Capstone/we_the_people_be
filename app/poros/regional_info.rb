@@ -12,6 +12,7 @@ class RegionalInfo
                 :politicians 
 
     def initialize(politicians, quiz = nil)
+        require "pry"; binding.pry
         @politicians = politicians
         @quiz = quiz
         @count = politicians.length
