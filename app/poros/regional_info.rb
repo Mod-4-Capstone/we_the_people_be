@@ -9,10 +9,11 @@ class RegionalInfo
                 :nra,
                 :numbers_usa,
                 :norml,
-                :politicians 
+                :politicians, 
+                :id
 
     def initialize(politicians, quiz = nil)
-        require "pry"; binding.pry
+        @id = nil
         @politicians = politicians
         @quiz = quiz
         @count = politicians.length

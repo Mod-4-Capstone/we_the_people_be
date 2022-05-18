@@ -63,8 +63,6 @@ GEM
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.2)
-    fast_jsonapi (1.5)
-      activesupport (>= 4.2)
     ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
@@ -202,7 +200,6 @@ DEPENDENCIES
   byebug
   faker
   faraday
-  fast_jsonapi
   figaro
   jsonapi-serializer
   listen (>= 3.0.5, < 3.2)
