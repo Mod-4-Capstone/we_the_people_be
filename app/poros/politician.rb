@@ -1,6 +1,7 @@
 class Politician
-    attr_reader :ratings, :bio, :user_ratings, :opinion_delta
+    attr_reader :id, :ratings, :bio, :user_ratings, :opinion_delta
     def initialize(id, user_ratings=nil)
+        @id = nil
         @ratings = VoteSmartFacade.specific_candidate_ratings(id)
         @bio = VoteSmartFacade.candidate_bio(id)
         @user_ratings = run_analysis(@ratings, user_ratings) if user_ratings.nil? == false
