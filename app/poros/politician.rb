@@ -1,5 +1,9 @@
 class Politician
+<<<<<<< HEAD
     attr_reader :id, :ratings, :bio, :user_ratings, :compatibility
+=======
+    attr_reader :ratings, :bio, :user_ratings, :compatibility
+>>>>>>> eca6f09 (Feature: regional info summary statistics)
     def initialize(id, user_ratings=nil)
         @id = nil
         @ratings = VoteSmartFacade.specific_candidate_ratings(id)
@@ -21,7 +25,7 @@ class Politician
         @ratings.aclu.to_i + @ratings.americans_for_prosperity.to_i + @ratings.end_citizens_united.to_i + @ratings.national_assocation_of_police.to_i + @ratings.national_assocation_of_police.to_i + @ratings.national_education_assocation.to_i+ @ratings.norml.to_i + @ratings.nra.to_i+ @ratings.numbers_usa.to_i + @ratings.planned_parenthood.to_i
     end
 
-    def difference_of_opinion(politician, user)
-        ((politician.to_f - user)/politician).abs*100
+    def difference_of_opinion(politician, user) 
+        (politician.to_f - user)/politician.abs*100
     end
 end
