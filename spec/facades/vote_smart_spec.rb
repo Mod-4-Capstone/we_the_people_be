@@ -81,5 +81,31 @@ RSpec.describe VoteSmartFacade, :vcr do
             expect(data[1].compatibility.to_i).to eq(36)
             expect(data[2].compatibility.to_i).to eq(16)
         end
+
+        it 'returns politicians with comparisons by zip' do
+            zip = 29617
+            quiz = {
+                aclu: "23",
+                americans_for_prosperity: "34",
+                end_citizens_united: "45",
+                national_assocation_of_police: "56",
+                national_education_assocation: "67",
+                national_parks_conservation: "78",
+                norml: "89",
+                nra: "90",
+                numbers_usa: "12",
+                planned_parenthood: "23"
+              }
+            candidate_ids = VoteSmartService.candidates_by_zip(zip).map{|i| i[:candidateId]}.uniq
+            politicians = candidate_ids.map do |candidateId|
+                Politician.new(candidateId)
+            end
+            data = VoteSmartFacade.zip_with_quiz(zip, quiz)
+
+            expect(data[0]).to be_a Politician
+            expect(data[0].compatibility.to_i).to eq(19)
+            expect(data[1].compatibility.to_i).to eq(1)
+            expect(data[2].compatibility.to_i).to eq(0)
+        end
     end
 end

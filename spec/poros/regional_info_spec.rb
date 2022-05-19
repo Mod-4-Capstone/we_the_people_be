@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe RegionalInfo do
+RSpec.describe RegionalInfo, :vcr do
   it 'exists' do
 
 

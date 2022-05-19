@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "Politician API" do
-  xit "happy path sends a politician report", :vcr do
+RSpec.describe "Politician API", :vcr do
+  xit "happy path sends a politician report" do
     quiz = {
     id: 42,
     age: "20-29",
