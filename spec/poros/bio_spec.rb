@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Bio do
+RSpec.describe Bio, :vcr do
   it "can make a politician object" do
     data = {
             candidate: {
