@@ -55,32 +55,31 @@ RSpec.describe VoteSmartFacade, :vcr do
         end
     end
 
-    # describe '#state_with_quiz' do
-    #     it 'returns politicians with comparisons' do
-    #         zip = 80526
-    #         state = "CO"
-    #         quiz = {
-    #             id: 42,
-    #             age: "20-29",
-    #             state: "CA",
-    #             zipcode: "95060",
-    #             aclu: "100",
-    #             americans_for_prosperity: "20",
-    #         end_: "80",
-    #             Q4: "80",
-    #             Q5: "100",
-    #             Q6: "100",
-    #             Q7: "92",
-    #             Q8: "7",
-    #             Q9: "0",
-    #             Q10: "100"
-    #           }
-    #         candidate_ids = VoteSmartService.candidates_by_zip(zip).map{|i| i[:candidateId]}.uniq
-    #         politicians = candidate_ids.map do |candidateId|
-    #             Politician.new(candidateId)
-    #          end
-    #          require "pry"; binding.pry
-    #         data = VoteSmartFacade.state_with_quiz(state, quiz)
-    #     end
-    # end
+    describe '#with_quiz' do
+       it 'returns politicians with comparisons by state' do
+            state = "CO"
+            quiz =  {
+                aclu: "23",
+                americans_for_prosperity: "34",
+                end_citizens_united: "45",
+                national_assocation_of_police: "56",
+                national_education_assocation: "67",
+                national_parks_conservation: "78",
+                norml: "89",
+                nra: "90",
+                numbers_usa: "12",
+                planned_parenthood: "23"
+              }
+            candidate_ids = VoteSmartService.candidates_by_state(state).map{|i| i[:candidateId]}.uniq
+            politicians = candidate_ids.map do |candidateId|
+                Politician.new(candidateId)
+             end
+            data = VoteSmartFacade.state_with_quiz(state, quiz)
+
+            expect(data[0]).to be_a Politician
+            expect(data[0].compatibility.to_i).to eq(41)
+            expect(data[1].compatibility.to_i).to eq(36)
+            expect(data[2].compatibility.to_i).to eq(16)
+        end
+    end
 end
