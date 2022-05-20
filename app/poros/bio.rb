@@ -1,15 +1,16 @@
 class Bio
-  attr_reader :ratings, :name, :state, :age, :district, :photo, :gender, :years_in_office, :next_election, :type
+  attr_reader :ratings, :name, :state, :age, :district, :photo, :gender, :years_in_office, :next_election, :type, :party
   def initialize(data)
       @name = data[:candidate][:firstName] + " " + data[:candidate][:lastName]
-      @type = data[:office].class == Hash ? "Senator" : "Representative"
-      @state = @type == "Senator" ? data[:office][:stateId] : data[:office].first[:stateId]
+      @type = data[:office][:title]
+      @state = @type == "Senator" ? data[:office][:stateId] : data[:office][:stateId]
       @age = get_age(data[:candidate][:birthDate])
-      @district = @type == "Senator" ? @state : data[:office].first[:district]
+      @district = @type == "Senator" ? @state : data[:office][:district]
       @photo = data[:candidate][:photo]
       @gender = data[:candidate][:gender]
-      @years_in_office = @type == 'Senator' ? time_in_office(data[:office][:firstElect]) : data[:office].first[:firstElect]
-      @next_election = @type == 'Senator' ? next_up(@type, data[:office][:lastElect]) : next_up(@type, data[:office].first[:lastElect])
+      @years_in_office = @type == 'Senator' ? time_in_office(data[:office][:firstElect]) : data[:office][:firstElect]
+      @next_election = @type == 'Senator' ? next_up(@type, data[:office][:lastElect]) : next_up(@type, data[:office][:lastElect])
+      @party = data[:office][:parties]
   end
 
   def get_age(bday)

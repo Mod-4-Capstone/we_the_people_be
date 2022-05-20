@@ -1,5 +1,5 @@
 class LoadFacade 
-     def self.candidates_in_state(state)
+    def self.candidates_in_state(state)
         candidate_ids = VoteSmartService.candidates_by_state(state).map{|i| i[:candidateId]}.uniq
     end
 
@@ -15,7 +15,8 @@ class LoadFacade
                 photo: bio.photo, 
                 gender: bio.gender, 
                 years_in_office: bio.years_in_office, 
-                next_election: bio.next_election
+                next_election: bio.next_election, 
+                party: bio.party
                 }
     end
 
