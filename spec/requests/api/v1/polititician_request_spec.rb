@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Politician API", :vcr do
   it "happy path sends a politician report" do
-    quiz = {
+    body = {
     id: 42,
     age: "20-29",
     state: "CA",
