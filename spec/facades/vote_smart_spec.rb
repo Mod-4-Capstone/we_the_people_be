@@ -7,8 +7,8 @@ RSpec.describe VoteSmartFacade, :vcr do
             expect(ratings.aclu).to eq(100)
             expect(ratings.americans_for_prosperity).to eq(10)
             expect(ratings.end_citizens_united).to eq(100)
-            expect(ratings.national_assocation_of_police).to eq(80)
-            expect(ratings.national_education_assocation).to eq(100)
+            expect(ratings.national_association_of_police).to eq(80)
+            expect(ratings.national_education_association).to eq(100)
             expect(ratings.national_parks_conservation).to eq(100)
             expect(ratings.norml).to eq(92)
             expect(ratings.nra).to eq(7)
@@ -62,8 +62,8 @@ RSpec.describe VoteSmartFacade, :vcr do
                 aclu: "23",
                 americans_for_prosperity: "34",
                 end_citizens_united: "45",
-                national_assocation_of_police: "56",
-                national_education_assocation: "67",
+                national_association_of_police: "56",
+                national_education_association: "67",
                 national_parks_conservation: "78",
                 norml: "89",
                 nra: "90",
@@ -88,8 +88,8 @@ RSpec.describe VoteSmartFacade, :vcr do
                 aclu: "23",
                 americans_for_prosperity: "34",
                 end_citizens_united: "45",
-                national_assocation_of_police: "56",
-                national_education_assocation: "67",
+                national_association_of_police: "56",
+                national_education_association: "67",
                 national_parks_conservation: "78",
                 norml: "89",
                 nra: "90",

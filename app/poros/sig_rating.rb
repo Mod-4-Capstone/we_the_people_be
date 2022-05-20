@@ -3,8 +3,8 @@ class SigRating
                 :americans_for_prosperity,
                 :aclu,
                 :end_citizens_united,
-                :national_assocation_of_police,
-                :national_education_assocation,
+                :national_association_of_police,
+                :national_education_association,
                 :national_parks_conservation,
                 :nra,
                 :numbers_usa,
@@ -14,8 +14,8 @@ class SigRating
         @americans_for_prosperity = get_rating(data, '310')
         @aclu = get_rating(data, '1378')
         @end_citizens_united = get_rating(data, '2568')
-        @national_assocation_of_police = get_rating(data, '2407')
-        @national_education_assocation = get_rating(data, '1015')
+        @national_association_of_police = get_rating(data, '2407')
+        @national_education_association = get_rating(data, '1015')
         @national_parks_conservation = get_rating(data, '922')
         @nra = get_rating(data, '1034')
         @numbers_usa = get_rating(data, '1985')
