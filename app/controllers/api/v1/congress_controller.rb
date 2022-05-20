@@ -7,7 +7,7 @@ class Api::V1::CongressController < ApplicationController
            politicians = VoteSmartFacade.zip_with_quiz(params[:zipcode], parse_quiz(params))
            render json: {
              politicians: PoliticianSerializer.new(politicians), 
-             summary_statistics: SummaryStatisticsSerializer.new(VoteSmartFacade.summary_statistics(politicians, parse_quiz(params))
+             summary_statistics: SummaryStatisticsSerializer.new(VoteSmartFacade.summary_statistics(politicians, parse_quiz(params)))
            }
     end
 
