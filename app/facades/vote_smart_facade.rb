@@ -40,7 +40,6 @@ class VoteSmartFacade
 
     def self.candidate_bio(id)
         json = VoteSmartService.candidate_bio(id)
-        require "pry"; binding.pry
         Bio.new(json[:bio])
     end
 

@@ -11,6 +11,7 @@ class CreateBiographies < ActiveRecord::Migration[5.2]
       t.integer :years_in_office
       t.integer :next_election
       t.integer :representative_id
+      t.string :party
     end
   end
 end

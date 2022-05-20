@@ -1,5 +1,5 @@
 class Bio
-  attr_reader :ratings, :name, :state, :age, :district, :photo, :gender, :years_in_office, :next_election, :type
+  attr_reader :ratings, :name, :state, :age, :district, :photo, :gender, :years_in_office, :next_election, :type, :party
   def initialize(data)
       @name = data[:candidate][:firstName] + " " + data[:candidate][:lastName]
       @type = data[:office][:title]
@@ -10,6 +10,7 @@ class Bio
       @gender = data[:candidate][:gender]
       @years_in_office = @type == 'Senator' ? time_in_office(data[:office][:firstElect]) : data[:office][:firstElect]
       @next_election = @type == 'Senator' ? next_up(@type, data[:office][:lastElect]) : next_up(@type, data[:office][:lastElect])
+      @party = data[:office][:parties]
   end
 
   def get_age(bday)

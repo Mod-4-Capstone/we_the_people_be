@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2022_05_19_222859) do
     t.integer "years_in_office"
     t.integer "next_election"
     t.integer "representative_id"
+    t.string "party"
   end
 
   create_table "ratings", force: :cascade do |t|
