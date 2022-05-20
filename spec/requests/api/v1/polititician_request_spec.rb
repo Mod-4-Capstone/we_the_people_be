@@ -18,7 +18,7 @@ RSpec.describe "Politician API", :vcr do
     numbers_usa: "0",
     planned_parenthood: "100"
   }
-    post '/api/v1/zipcode_with_quiz', params: quiz
+    post '/api/v1/zipcode_with_quiz', params: body
 
     expect(response.status).to eq(200)
     response_data = JSON.parse(response.body, symbolize_names: true)[:politicians][:data]
