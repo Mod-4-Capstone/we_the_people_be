@@ -4,10 +4,10 @@ class Api::V1::CongressController < ApplicationController
   end
 
   def zipcode_with_quiz
-           politicians = VoteSmartFacade.zip_with_quiz(params[:zipcode], parse_quiz(params[:congress]))
+           politicians = VoteSmartFacade.zip_with_quiz(params[:zipcode], parse_quiz(params))
            render json: {
              politicians: PoliticianSerializer.new(politicians), 
-             summary_statistics: SummaryStatisticsSerializer.new(VoteSmartFacade.summary_statistics(politicians, parse_quiz(params[:congress])))
+             summary_statistics: SummaryStatisticsSerializer.new(VoteSmartFacade.summary_statistics(politicians, parse_quiz(params)))
            }
     end
 
@@ -24,8 +24,8 @@ class Api::V1::CongressController < ApplicationController
       aclu: quiz[:aclu].to_i,
       americans_for_prosperity: quiz[:americans_for_prosperity].to_i,
       end_citizens_united: quiz[:end_citizens_united].to_i,
-      national_assocation_of_police: quiz[:national_assocation_of_police].to_i,
-      national_education_assocation: quiz[:national_education_assocation].to_i,
+      national_association_of_police: quiz[:national_association_of_police].to_i,
+      national_education_association: quiz[:national_education_association].to_i,
       national_parks_conservation: quiz[:national_parks_conservation].to_i,
       norml: quiz[:norml].to_i,
       nra: quiz[:nra].to_i,

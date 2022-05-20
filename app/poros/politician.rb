@@ -20,7 +20,7 @@ class Politician
     end
 
     def politician_opinion_sum
-        @ratings.aclu.to_i + @ratings.americans_for_prosperity.to_i + @ratings.end_citizens_united.to_i + @ratings.national_assocation_of_police.to_i + @ratings.national_assocation_of_police.to_i + @ratings.national_education_assocation.to_i+ @ratings.norml.to_i + @ratings.nra.to_i+ @ratings.numbers_usa.to_i + @ratings.planned_parenthood.to_i
+        @ratings.aclu.to_i + @ratings.americans_for_prosperity.to_i + @ratings.end_citizens_united.to_i + @ratings.national_association_of_police.to_i + @ratings.national_association_of_police.to_i + @ratings.national_education_association.to_i+ @ratings.norml.to_i + @ratings.nra.to_i+ @ratings.numbers_usa.to_i + @ratings.planned_parenthood.to_i
     end
 
     def difference_of_opinion(politician, user) 
