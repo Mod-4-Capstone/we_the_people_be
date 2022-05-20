@@ -5,6 +5,10 @@ Rails.application.routes.draw do
       post '/zipcode_with_quiz', to: "congress#zipcode_with_quiz"
       post '/state_with_quiz', to: 'congress#state_with_quiz'
     end
+    namespace :v2 do 
+      post '/zipcode_with_quiz', to: "congress#zipcode_with_quiz"
+      post '/state_with_quiz', to: 'congress#state_with_quiz'
+    end
   end
 end
 #TODO refactor into same endpoint
