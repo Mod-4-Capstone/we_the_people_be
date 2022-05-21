@@ -8,7 +8,7 @@ class LoadFacade
         bio = Bio.new(json[:bio])
         return {
                 name: bio.name, 
-                congressional_type: bio.type, 
+                congressional_type: bio.congressional_type, 
                 state: bio.state, 
                 age: bio.age, 
                 district: bio.district, 

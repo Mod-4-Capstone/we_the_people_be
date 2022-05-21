@@ -29,7 +29,7 @@ RSpec.describe VoteSmartFacade, :vcr do
             expect(bio.next_election).to eq("2026")
             expect(bio.photo).to eq("https://static.votesmart.org/canphoto/71547.jpg")
             expect(bio.state).to eq("CO")
-            expect(bio.type).to eq("Senator")
+            expect(bio.congressional_type).to eq("Senator")
             expect(bio.years_in_office).to eq(2)
         end
     end

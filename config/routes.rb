@@ -11,4 +11,3 @@ Rails.application.routes.draw do
     end
   end
 end
-#TODO refactor into same endpoint
