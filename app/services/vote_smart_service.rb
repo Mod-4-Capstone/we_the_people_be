@@ -35,8 +35,12 @@ class VoteSmartService
     else
       parsed = JSON.parse(response.body, symbolize_names: true)
     end
-    rescue JSON::ParserError
-      response_body = response.body + "]}}"
-      parsed = JSON.parse(response_body, symbolize_names: true)
+  rescue JSON::ParserError
+    response_body = response.body + "]}}"
+    parsed = JSON.parse(response_body, symbolize_names: true)
+  end
+  def self.get_address(id)
+    response = conn.get("Address.getOfficeWebAddress?candidateId=#{id}")
+    parsed = JSON.parse(response.body, symbolize_names: true)
   end
 end
