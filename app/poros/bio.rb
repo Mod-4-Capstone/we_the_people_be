@@ -10,7 +10,7 @@ class Bio
       @gender = data[:candidate][:gender]
       @years_in_office = time_in_office(find_data(data[:office], :firstElect))
       @next_election = next_up(find_data(data[:office], :lastElect))
-      @party = find_data(data[:office], :parties)
+      @party = find_data(data[:office], :parties) == "Democratic" ? "Democrat" : "Republican"
   end
 
   def find_data(where, attribute)

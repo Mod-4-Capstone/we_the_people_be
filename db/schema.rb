@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_19_222859) do
+ActiveRecord::Schema.define(version: 2022_05_21_201122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,14 +43,24 @@ ActiveRecord::Schema.define(version: 2022_05_19_222859) do
     t.integer "representative_id"
   end
 
+  create_table "representative_socials", force: :cascade do |t|
+    t.string "website"
+    t.string "contact_page"
+    t.string "twitter"
+    t.integer "representative_id"
+  end
+
   create_table "representatives", force: :cascade do |t|
     t.integer "votesmart_id"
     t.bigint "biography_id"
     t.bigint "rating_id"
+    t.bigint "representative_socials_id"
     t.index ["biography_id"], name: "index_representatives_on_biography_id"
     t.index ["rating_id"], name: "index_representatives_on_rating_id"
+    t.index ["representative_socials_id"], name: "index_representatives_on_representative_socials_id"
   end
 
   add_foreign_key "representatives", "biographies"
   add_foreign_key "representatives", "ratings"
+  add_foreign_key "representatives", "representative_socials", column: "representative_socials_id"
 end

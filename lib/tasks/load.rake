@@ -11,8 +11,10 @@ task :get_reps, [:filename] => :environment do
       ratings_info = LoadFacade.specific_candidate_ratings(id)
       puts(id, state)
       ratings = Rating.create(ratings_info)
-      Representative.create!(votesmart_id: id, biography: biography, rating: ratings)
-      rescue
+      social_info = LoadFacade.social_info(id)
+      representative_social = RepresentativeSocial.create!(social_info)
+      Representative.create!(votesmart_id: id, biography: biography, rating: ratings, representative_social: representative_social)
+      rescue 
         retry
       end
     end
