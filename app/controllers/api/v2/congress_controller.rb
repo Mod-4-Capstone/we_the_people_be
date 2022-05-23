@@ -2,10 +2,10 @@ class Api::V2::CongressController < ApplicationController
 
   def zipcode_with_quiz
     if params[:aclu].nil?
-      render json: {error: 'please include quiz!'}, status: :bad_request 
-    elsif params[:zipcode].blank? 
-      render json: {error: 'please include zipcode!'}, status: :bad_request 
-    else 
+      render json: {error: 'please include quiz!'}, status: :bad_request
+    elsif params[:zipcode].blank?
+      render json: {error: 'please include zipcode!'}, status: :bad_request
+    else
       representatives = Representative.from_zip(params[:zipcode])
       quiz = parse_quiz(params)
       render json: {
@@ -17,10 +17,11 @@ class Api::V2::CongressController < ApplicationController
 
   def state_with_quiz
     if params[:aclu].nil?
-      render json: {error: 'please include quiz!'}, status: :bad_request 
-    elsif params[:state].blank? 
-      render json: {error: 'please include state!'}, status: :bad_request 
-    else 
+      render json: {error: 'please include quiz!'}, status: :bad_request
+    elsif params[:state].blank?
+      render json: {error: 'please include state!'}, status: :bad_request
+    else
+      #binding.pry
       representatives = Representative.from_state(params[:state])
       quiz = parse_quiz(params)
       render json: {
@@ -30,8 +31,8 @@ class Api::V2::CongressController < ApplicationController
     end
   end
 
-  private 
-  
+  private
+
   def parse_quiz(quiz)
     {
       aclu: quiz[:aclu].to_i,
@@ -46,5 +47,5 @@ class Api::V2::CongressController < ApplicationController
       planned_parenthood: quiz[:planned_parenthood].to_i
     }
   end
-  
+
 end
