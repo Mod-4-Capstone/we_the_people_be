@@ -11,6 +11,8 @@ class Social
         @data.select{|json| json[:webAddressTypeId] == type_id.to_s}.first[:webAddress]
         rescue NoMethodError
             nil 
+        rescue TypeError 
+            nil
         end
     end
 end
