@@ -1,6 +1,6 @@
 class RepresentativeSerializer
   include JSONAPI::Serializer
-  attributes :biography, :rating
+  attributes :biography, :rating, :representative_social
   attribute :user_comparison do |object, params| 
     object.user_comparison(params)
   end

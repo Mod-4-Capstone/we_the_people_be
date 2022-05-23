@@ -1,6 +1,7 @@
 class Representative < ApplicationRecord
     has_one :biography
     has_one :rating
+    has_one :representative_social
 
     def self.from_state(state)
         joins(:biography).where(biographies: {state: state})

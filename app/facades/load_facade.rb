@@ -1,3 +1,4 @@
+require './app/poros/social'
 class LoadFacade 
     def self.candidates_in_state(state)
         candidate_ids = VoteSmartService.candidates_by_state(state).map{|i| i[:candidateId]}.uniq
@@ -33,5 +34,14 @@ class LoadFacade
                 numbers_usa: ratings.numbers_usa, 
                 norml: ratings.norml
                 }
+    end
+
+    def self.social_info(id)
+        social = Social.new(VoteSmartService.get_address(id)[:webaddress][:address])
+        return {
+            twitter: social.twitter, 
+            contact_page: social.contact_page, 
+            website: social.website
+        }
     end
 end
