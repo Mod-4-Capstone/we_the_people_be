@@ -46,6 +46,9 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           vote_smart_key: ${{secrets.VOTE_SMART_KEY}}
-        run: COVERAGE=true bundle exec rspec  --require rails_helper
+        run: |
+          rake db:test:load
+          rake get_reps_test
+          COVERAGE=true bundle exec rspec  --require rails_helper
         
         
