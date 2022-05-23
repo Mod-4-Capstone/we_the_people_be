@@ -18,6 +18,8 @@ class Bio
       where[attribute]
     rescue TypeError
       where.first[attribute]
+    rescue NoMethodError
+      nil
     end
   end
 
@@ -27,15 +29,23 @@ class Bio
   end
 
   def next_up(date)
-    if @congressional_type == 'Senator'
+    if date.empty? 
+      return 'unknown'
+    elsif @congressional_type == 'Senator'
       return (date[-4..-1].to_i + 6).to_s
-    else
+    elsif @congressional_type == "Representative"
       return (date[-4..-1].to_i + 2).to_s
+    else 
+      now = Time.now.utc.to_date.year
     end
   end
 
   def time_in_office(date)
-    now = Time.now.utc.to_date.year
-    now - date[-4..-1].to_i
+    if date.nil?
+      return 'unknown'
+    else 
+      now = Time.now.utc.to_date.year
+      return now - date[-4..-1].to_i
+    end
   end
 end
