@@ -21,6 +21,7 @@ class Api::V2::CongressController < ApplicationController
     elsif params[:state].blank?
       render json: {error: 'please include state!'}, status: :bad_request
     else
+      #binding.pry
       representatives = Representative.from_state(params[:state])
       quiz = parse_quiz(params)
       render json: {

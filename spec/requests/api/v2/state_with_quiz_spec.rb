@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Congress Requests" do
-  describe ".state_with_quiz", :vcr do
+  describe ".state_with_quiz" do
     it "happy path sends representatives from a state" do
+
       body = {
       id: 42,
       age: "20-29",
@@ -20,10 +21,10 @@ RSpec.describe "Congress Requests" do
       planned_parenthood: "100"
       }
       keys = []
-      post '/api/v2/zipcode_with_quiz', params: body
+      post '/api/v2/state_with_quiz', params: body
 
       expect(response.status).to eq(200)
-      binding.pry
+      #binding.pry
       response_data = JSON.parse(response.body, symbolize_names: true)[:politicians][:data]
       expect(response_data).to be_a(Array)
       expect(response_data.first[:type]).to eq('representative')

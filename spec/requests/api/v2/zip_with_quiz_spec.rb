@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Congress Requests" do
-  describe ".zipcode_with_quiz" do
-    it "happy path sends representatives from a zip", :vcr do
+  describe ".zipcode_with_quiz", :vcr do
+    it "happy path sends representatives from a zip" do
       body = {
       id: 42,
       age: "20-29",
