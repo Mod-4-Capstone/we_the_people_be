@@ -24,6 +24,7 @@ class LoadFacade
     def self.specific_candidate_ratings(id)
         ratings = SigRating.new(VoteSmartService.get_all_sig_ratings(id))
             return {
+                aclu: ratings.aclu,
                 planned_parenthood: ratings.planned_parenthood, 
                 americans_for_prosperity: ratings.americans_for_prosperity, 
                 end_citizens_united: ratings.end_citizens_united, 
