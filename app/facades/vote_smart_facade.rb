@@ -1,3 +1,4 @@
+# typed: true
 require './app/poros/sig_rating'
 require './app/poros/politician'
 require './app/poros/regional_info'

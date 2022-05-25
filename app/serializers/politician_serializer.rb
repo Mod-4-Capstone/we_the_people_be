@@ -1,3 +1,4 @@
+# typed: ignore
 class PoliticianSerializer
   include JSONAPI::Serializer
 

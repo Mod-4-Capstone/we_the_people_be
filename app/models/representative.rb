@@ -1,3 +1,4 @@
+# typed: false
 class Representative < ApplicationRecord
     has_one :biography
     has_one :rating

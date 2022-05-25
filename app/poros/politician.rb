@@ -1,3 +1,4 @@
+# typed: true
 class Politician
 
     attr_reader :id, :ratings, :bio, :user_ratings, :compatibility

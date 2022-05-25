@@ -1,3 +1,4 @@
+# typed: ignore
 class Api::V1::CongressController < ApplicationController
   def zipcode
     VoteSmartFacade.all_ratings_for_candidates_in_zip(params[:zipcode])
