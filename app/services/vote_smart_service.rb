@@ -1,3 +1,4 @@
+# typed: true
 class VoteSmartService
   def self.conn
     Faraday.new(url: 'http://api.votesmart.org/') do |f|

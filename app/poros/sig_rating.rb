@@ -1,3 +1,4 @@
+# typed: true
 class SigRating
     attr_reader :planned_parenthood,
                 :americans_for_prosperity,

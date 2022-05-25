@@ -1,3 +1,4 @@
+# typed: true
 require './app/poros/social'
 class LoadFacade 
     def self.candidates_in_state(state)

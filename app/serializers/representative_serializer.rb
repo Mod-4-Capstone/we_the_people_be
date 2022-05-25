@@ -1,3 +1,4 @@
+# typed: ignore
 class RepresentativeSerializer
   include JSONAPI::Serializer
   attributes :biography, :rating, :representative_social

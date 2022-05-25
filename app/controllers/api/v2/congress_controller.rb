@@ -1,3 +1,4 @@
+# typed: ignore
 class Api::V2::CongressController < ApplicationController
 
   def zipcode_with_quiz

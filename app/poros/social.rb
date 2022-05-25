@@ -1,3 +1,4 @@
+# typed: true
 class Social 
     attr_reader :website, :twitter, :contact_page
     def initialize(data)
