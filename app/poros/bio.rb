@@ -10,12 +10,12 @@ class Bio
       @district = @congressional_type == "Senator" ? @state : find_data(data[:office], :district)
       @photo = data[:candidate][:photo]
       @gender = data[:candidate][:gender]
-      @years_in_office = time_in_office(find_data(data[:office], :firstElect))
-      @next_election = next_up(find_data(data[:office], :lastElect))
+      @years_in_office = time_in_office(T.must(find_data(data[:office], :firstElect)))
+      @next_election = next_up(T.must(find_data(data[:office], :lastElect)))
       @party = find_data(data[:office], :parties) == "Democratic" ? "Democrat" : "Republican"
   end
 
-  sig { params(where: Hash, attribute: Symbol).returns(String) }
+  sig { params(where: Hash, attribute: Symbol).returns(T.nilable(String)) }
   def find_data(where, attribute)
     begin
       where[attribute]

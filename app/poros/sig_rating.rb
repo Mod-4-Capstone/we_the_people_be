@@ -1,5 +1,6 @@
 # typed: true
 class SigRating
+    extend T::Sig
     attr_reader :planned_parenthood,
                 :americans_for_prosperity,
                 :aclu,
@@ -23,8 +24,9 @@ class SigRating
         @norml = get_rating(data, '599')
     end
 
+    sig { params(data: Hash, id: String).returns(T.nilable(Integer)) }
     def get_rating(data, id)
         data[:candidateRating][:rating].select{|sig| sig[:sigId] == id}.any? ? data[:candidateRating][:rating].select{|sig| sig[:sigId] == id}.first[:rating].to_i : nil
     end
-    
+
 end
