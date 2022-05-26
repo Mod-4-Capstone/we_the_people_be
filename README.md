@@ -14,7 +14,6 @@
       <a href="#api-info">API Info</a>
       <ul>
         <li><a href="#consumed">Consumed</a></li>
-        <li><a href="#exposed">Exposed</a></li>
       </ul>
     </li>
     <li><a href="Contributors">Contributors</a></li>
