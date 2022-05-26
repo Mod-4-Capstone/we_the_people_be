@@ -68,9 +68,9 @@
     - Used to retrieve all the information about the representatives used in this project.
     - Endpoints Used:
       - /zipcode_with_quiz
-      Sends representative's quiz results, user's quiz results and comparison for each of the representatives for a given zipcode. 
+        - Sends representative's quiz results, user's quiz results and comparison for each of the representatives for a given zipcode. 
       - /state_with_quiz
-      Sends representative's quiz results, user's quiz results and comparison for each of the representatives for a given state. 
+        - Sends representative's quiz results, user's quiz results and comparison for each of the representatives for a given state. 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contributors
