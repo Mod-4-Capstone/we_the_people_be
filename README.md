@@ -41,18 +41,18 @@
     - Rails: 5.2.6
 - Database: PostgreSQL
 - Gems
-    `gem 'bootsnap', '>= 1.1.0', require: false
-    gem 'figaro'
-    gem 'faraday'
-    gem 'jsonapi-serializer'
-    gem 'rack-cors'
-    gem 'sorbet'
-    gem 'sorbet-runtime'
-    gem 'pry'
-    gem 'rspec-rails'
-    gem 'simplecov'
-    gem 'vcr'
-    gem 'webmock'`
+    - gem 'bootsnap', '>= 1.1.0', require: false
+    - gem 'figaro'
+    - gem 'faraday'
+    - gem 'jsonapi-serializer'
+    - gem 'rack-cors'
+    - gem 'sorbet'
+    - gem 'sorbet-runtime'
+    - gem 'pry'
+    - gem 'rspec-rails'
+    - gem 'simplecov'
+    - gem 'vcr'
+    - gem 'webmock'
 
   - Other tech used:
   - GitHub Actions
