@@ -22,13 +22,13 @@
 
 ## About The Project
 
-- In an country that is so divided politically, we attemped to build a platform that would allow people to become more informed about the representatives where they live. Our project strives to push people away from showing up to a voting booth and voting "Red" or "Blue" just because the person running is identified with a certain party. We instead chose to show people who they best align with based on the issues that are important to them.
-- Our App takes in client information via a "quiz" and then runs that through our program comparing the information from the API we used to give the user comparible data with the representatives in their area and state. 
-- This project mimics a service-oriented architecture where the back-end is responsible for consuming external API's and making the information avaiable by request to users through our front-end. 
+- In a country that is so divided politically, we attemped to build a platform that would allow people to become more informed about the representatives where they live. Our project strives to push people away from showing up to a voting booth and voting "Red" or "Blue" just because the person running is identified with a certain party. We instead chose to show people who they best align with based on the issues that are important to them.
+- Our App takes in client information via a "quiz" and then runs that through our program comparing the information from the API we used to give the user comparable data with the representatives in their area and state. 
+- This project mimics a service-oriented architecture where the back-end is responsible for consuming external API's and making the information available by request to users through our front-end. 
 - Check out the Front-End at the [We The People FE Repo](https://github.com/Mod-4-Capstone/we-the-people-fe)
 - Both repositories are accessible through Heroku: 
   - [Heroku Link - We The People BE](https://we-the-people-be.herokuapp.com/)
-  - [Heroku Link - We The People FE]()
+  - [Surge Link - We The People FE](https://wethepeople.surge.sh/)
 - [Turing Project Page](https://mod4.turing.edu/projects/capstone/)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
