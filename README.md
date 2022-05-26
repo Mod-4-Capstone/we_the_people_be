@@ -1,24 +1,66 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<div id="top"></div>
 
-Things you may want to cover:
+# We The People
 
-* Ruby version
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    <li>
+      <a href="#api-info">API Info</a>
+      <ul>
+        <li><a href="#consumed">Consumed</a></li>
+        <li><a href="#exposed">Exposed</a></li>
+      </ul>
+    </li>
+    <li><a href="Contributors">Contributors</a></li>
+  </ol>
+</details>
 
-* System dependencies
+## About The Project
 
-* Configuration
+- In an country that is so divided politically, we attemped to build a platform that would allow people to become more informed about the representatives where they live. Our project strives to push people away from showing up to a voting booth and voting "Red" or "Blue" just because the person running is identified with a certain party. We instead of chosen to show people who they best align with based on the issues that are important to them.
+- Our App takes in client information via a "quiz" and then runs that through our program comparing the information from the API we used to give the user comparible data with the representatives in their area and state. 
+- This project mimics a service-oriented architecture where the back-end is responsible for consuming external API's and making the information avaiable by request to users through our front-end. 
+- Check out the Front-End at the [We The People FE Repo]([https://github.com/markertmer/news_app_fe](https://github.com/Mod-4-Capstone/we-the-people-fe))
+- Both repositories are accessible through Heroku: 
+  - [Heroku Link - We The People BE](https://we-the-people-be.herokuapp.com/)
+  - [Heroku Link - We The People FE]()
+- [Turing Project Page](https://mod4.turing.edu/projects/capstone/)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-* Database creation
 
-* Database initialization
+## Built With:
 
-* How to run the test suite
+- Framework: Ruby on Rails
+  - Versions
+    - Ruby: 2.7.4
+    - Rails: 5.2.6
+- Database: PostgreSQL
+- Other tech used: 
+  - GitHub Actions
+  - Sorbet
+  - Postman
+  - RSpec 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-* Services (job queues, cache servers, search engines, etc.)
+## API Info:
 
-* Deployment instructions
+  ### Consumed:
+  - Vote Smart
+    - Used to retrieve all the information about the representatives used in this project.
+    - Endpoints Used:
+      - 
 
-* ...
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Contributors
+
+- [Blake Dempsey](https://github.com/bdempsey864)<br>
+- [Conor Barthel](https://github.com/conorbarthel)<br>
+- [Michael Brandt](https://github.com/mbrandt00)<br>
+<p align="right">(<a href="#top">back to top</a>)</p>
