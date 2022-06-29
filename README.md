@@ -59,6 +59,7 @@
   - `Sorbet` for strict type checking
   - `Postman` for API documentation and internal use with the Front End
   - `RSpec` for model, facade, service, unit, and integration tests
+  - `PostgreSQL` for database and querying user comparison to special intrest group's ratings and compatibility with representatives. 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## API Info:
